@@ -2,6 +2,8 @@ const boom = require('@hapi/boom');
 const joi = require('joi')
 
 function validate(data, schema) {
+  // If input is valid, then error will be undefined
+  // If invalid, error is assigned a ValidationError
   const { error } = joi.object(schema).validate(data);
 
   return error;

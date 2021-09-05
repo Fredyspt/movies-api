@@ -1,4 +1,6 @@
 const express = require('express');
+const morgan = require('morgan');
+const helmet = require('helmet');
 
 const { config } = require('./config/index');
 const moviesApi = require('./routes/movies');
@@ -8,7 +10,9 @@ const notFoundHandler = require('./utils/middleware/notFoundHandler')
 const app = express();
 // body parser
 app.use(express.json());
-
+// logger
+app.use(morgan('dev'));
+app.use(helmet());
 // Routes
 moviesApi(app);
 
