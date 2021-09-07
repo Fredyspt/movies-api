@@ -16,7 +16,7 @@ function moviesApi(app) {
 
   const moviesService = new MoviesService();
 
-  // home ('/') is now ('/api/movies/')
+  // home ('/') is now ('/api/movies')
   router.get('/', async (req, res, next) => {
     const { tags } = req.query;
     try {
